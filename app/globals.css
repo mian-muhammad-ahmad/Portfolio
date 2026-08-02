@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Colors are stored as space-separated RGB channels (not hex) so Tailwind's
+  opacity modifiers work, e.g. `border-teal/40` -> rgb(var(--teal) / 0.4).
+  See tailwind.config.ts for how these are wired into utility classes.
+*/
+:root {
+  --bg: 10 14 20;            /* #0a0e14 */
+  --bg-alt: 13 18 25;        /* #0d1219 */
+  --panel: 16 23 32;         /* #101720 */
+  --panel-2: 19 27 38;       /* #131b26 */
+  --border: 32 42 56;        /* #202a38 */
+  --border-soft: 26 34 46;   /* #1a222e */
+  --text: 234 238 244;       /* #eaeef4 */
+  --text-muted: 138 151 172; /* #8a97ac */
+  --text-dim: 91 103 121;    /* #5b6779 */
+  --blue: 76 141 255;        /* #4c8dff */
+  --teal: 47 224 196;        /* #2fe0c4 */
+  --violet: 139 124 255;     /* #8b7cff */
+}
+
+[data-theme="light"] {
+  --bg: 246 248 251;         /* #f6f8fb */
+  --bg-alt: 238 241 246;     /* #eef1f6 */
+  --panel: 255 255 255;      /* #ffffff */
+  --panel-2: 249 250 252;    /* #f9fafc */
+  --border: 226 231 239;     /* #e2e7ef */
+  --border-soft: 234 238 244;/* #eaeef4 */
+  --text: 16 23 34;          /* #101722 */
+  --text-muted: 85 96 111;   /* #55606f */
+  --text-dim: 136 146 160;   /* #8892a0 */
+  --blue: 46 111 224;        /* #2e6fe0 */
+  --teal: 18 156 134;        /* #129c86 */
+  --violet: 106 86 232;      /* #6a56e8 */
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  html {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grad-text {
+  background: linear-gradient(120deg, rgb(var(--blue)), rgb(var(--teal)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grad-bg {
+  background: linear-gradient(120deg, rgb(var(--blue)), rgb(var(--teal)));
+}
+
+.grad-soft {
+  background: linear-gradient(135deg, rgba(76, 141, 255, 0.16), rgba(47, 224, 196, 0.1));
+}
+
+.eyebrow::before {
+  content: "#";
+  color: rgb(var(--text-dim));
+}
+
+.skip-link:focus {
+  top: 12px !important;
+}
+
+/* Reveal-on-scroll base state (toggled by Reveal component) */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal-init.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-init > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.stagger-init.stagger-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-init.stagger-in > *:nth-child(1) { transition-delay: 0.03s; }
+.stagger-init.stagger-in > *:nth-child(2) { transition-delay: 0.09s; }
+.stagger-init.stagger-in > *:nth-child(3) { transition-delay: 0.15s; }
+.stagger-init.stagger-in > *:nth-child(4) { transition-delay: 0.21s; }
+.stagger-init.stagger-in > *:nth-child(5) { transition-delay: 0.27s; }
+.stagger-init.stagger-in > *:nth-child(6) { transition-delay: 0.33s; }
+
+/* Skill bar fill transition */
+.bar-fill {
+  transition: width 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 6px;
+}
