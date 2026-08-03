@@ -213,14 +213,19 @@ export const projects: Project[] = [
     accent: "violet",
   },
   {
-    title: "MLOps Model Registry & CI/CD Pipeline",
+    title: "Personal Portfolio Website",
     description:
-      "Versioned model registry with automated retraining triggers, staging validation gates, and one-click rollback for production ML models.",
-    metrics: ["10x faster deploys", "Zero-downtime rollout"],
-    tech: ["MLflow", "Docker", "GitHub Actions", "AWS"],
-    demoUrl: "#",
-    repoUrl: "#",
-    gradient: "from-[#1c1424] to-[#130d1c]",
+      "A modern, responsive portfolio built with Next.js and Tailwind CSS to showcase my projects, technical skills, certifications, and experience. Designed with smooth animations, responsive layouts, and optimized performance.",
+    metrics: ["Fully Responsive", "Modern UI"],
+    tech: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+    demoUrl: "https://mian-ahmad-portfolio.vercel.app/",
+    repoUrl: "https://github.com/mian-muhammad-ahmad/Portfolio",
+    gradient: "from-[#1a1730] to-[#12101f]",
     accent: "violet",
   },
 ];

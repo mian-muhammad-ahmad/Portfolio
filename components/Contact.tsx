@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { SectionHeading } from "./ui";
 import Reveal from "./Reveal";
 import { contactLinks } from "@/lib/data";
@@ -11,6 +12,7 @@ const icons: Record<string, React.ReactNode> = {
   email: <Mail size={18} />,
   linkedin: <Linkedin size={18} />,
   github: <Github size={18} />,
+  whatsapp: <FaWhatsapp size={18} />,
   upwork: <Github size={18} />,
   location: <MapPin size={18} />,
 };
